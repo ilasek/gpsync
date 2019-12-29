@@ -27,7 +27,7 @@ Go to http://localhost:8080/. Give the application the right to read your Google
 ## For Developers
 
 * An example of Google OAuth flow initiation can be found in [GoogleAuthService](src/main/java/com/ivolasek/gpsync/google/GoogleAuthService.java).
-* Google Photos can be used through [PhotosService](/Users/laseki/IdeaProjects/gpsync/src/main/java/com/ivolasek/gpsync/google/PhotosService.java).
+* Google Photos can be used through [PhotosService](src/main/java/com/ivolasek/gpsync/google/PhotosService.java).
 
  
 ### Related Reading

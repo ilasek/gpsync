@@ -29,7 +29,12 @@ Go to http://localhost:8080/. Give the application the right to read your Google
 * An example of Google OAuth flow initiation can be found in [GoogleAuthService](src/main/java/com/ivolasek/gpsync/google/GoogleAuthService.java).
 * Google Photos can be used through [PhotosService](src/main/java/com/ivolasek/gpsync/google/PhotosService.java).
 
- 
+## Copying files
+If you want to merge two folders (one that you created earlier with same folder filled in later) there is a hidden option on Mac:
+[How to combine folders in macOS using the hidden Merge options and the Ditto command](https://appleinsider.com/articles/18/03/02/how-to-combine-folders-in-macos-using-the-hidden-merge-options-and-the-ditto-command)
+
+TL;DR Move the files while holding the ```Option``` key.
+
 ### Related Reading
 
 #### Photos API 

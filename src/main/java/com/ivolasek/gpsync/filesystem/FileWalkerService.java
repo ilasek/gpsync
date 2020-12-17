@@ -54,6 +54,7 @@ public class FileWalkerService {
                 log.info("Album {} contains {} mediaItems after the date", album.getTitle(), items.size());
                 moveFilesAccordingly(items, album.getTitle());
                 emptyAlbumsCounter = (items.size() > 0) ? 0 : emptyAlbumsCounter + 1;
+                log.info("Count of empty albums: {}", emptyAlbumsCounter);
                 if (emptyAlbumsCounter > fileSystemConfig.getStopAfterNEmptyAlbums()) {
                     log.info("Stopping after {} empty albums", emptyAlbumsCounter);
                     break;

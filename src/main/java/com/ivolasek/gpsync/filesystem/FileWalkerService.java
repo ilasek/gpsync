@@ -52,8 +52,8 @@ public class FileWalkerService {
                 log.info("Walking through album {}", album.getTitle());
                 List<MediaItem> items = photosService.getMediaCreatedAfter(client, album.getId(), oldestFileDate);
                 log.info("Album {} contains {} mediaItems after the date", album.getTitle(), items.size());
-                moveFilesAccordingly(items, album.getTitle());
-                emptyAlbumsCounter = (items.size() > 0) ? 0 : emptyAlbumsCounter + 1;
+                int itemsMoved = moveFilesAccordingly(items, album.getTitle());
+                emptyAlbumsCounter = (itemsMoved > 0) ? 0 : emptyAlbumsCounter + 1;
                 log.info("Count of empty albums: {}", emptyAlbumsCounter);
                 if (emptyAlbumsCounter > fileSystemConfig.getStopAfterNEmptyAlbums()) {
                     log.info("Stopping after {} empty albums", emptyAlbumsCounter);
@@ -103,7 +103,8 @@ public class FileWalkerService {
         return dirName;
     }
 
-    private void moveFilesAccordingly(List<MediaItem> items, String albumName) {
+    private int moveFilesAccordingly(List<MediaItem> items, String albumName) {
+        int itemsMoved = 0;
         if (items.size() > 0) {
             String createdDir = makeDirectory(fileSystemConfig.getTargetFolder() + "/" + getMinItemsDate(items) + albumName);
             if (createdDir != null) {
@@ -113,12 +114,15 @@ public class FileWalkerService {
                                 Paths.get(fileSystemConfig.getSourceFolder() + "/" + item.getFilename()),
                                 Paths.get(createdDir + "/" + item.getFilename())
                         );
+                        itemsMoved++;
                     } catch (IOException e) {
                         log.error("Problem moving file {} to {}", item.getFilename(), createdDir);
                     }
                 }
             }
         }
+
+        return itemsMoved;
     }
 
     private String makeDirectory(String path) {

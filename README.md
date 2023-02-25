@@ -35,18 +35,22 @@ If you want to merge two folders (one that you created earlier with same folder 
 
 TL;DR Move the files while holding the ```Option``` key.
 
-### Related Reading
+## Copying to s3
+```bash
+aws s3 cp ~/Downloads/photos_target/ s3://laskovi-photos/2023 --recursive
+```
 
-#### Photos API 
+## Related Reading
+
+### Photos API 
 https://developers.google.com/photos/library/reference/rest/v1/mediaItems/search
 
-#### Google OAuth2 Library
+### Google OAuth2 Library
 https://developers.google.com/api-client-library/java/google-api-java-client/oauth2
 
 https://developers.google.com/api-client-library/java/google-api-java-client/oauth2#authorization_code_flow
 
-#### Google Photos API Java client 
+### Google Photos API Java client 
 https://developers.google.com/photos/library/guides/get-started-java
 
 https://developers.google.com/photos/library/guides/authentication-authorization
-
